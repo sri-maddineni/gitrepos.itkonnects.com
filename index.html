@@ -107,9 +107,15 @@
         .then(response => response.json())
         .then(data => {
           const repositoriesDiv = document.getElementById('repositories');
-          repositoriesDiv.innerHTML = ''; // Clear previous content
+          repositoriesDiv.innerHTML = ''; 
 
-          // Loop through the repositories and create a list item for each
+          if (data.length === 0) {
+         
+          repositoriesDiv.innerHTML+=`<h3>no repos found<h3>`;
+          console.log("no found")
+        }
+
+          
           data.forEach(repo => {
 
             const repoLink = document.createElement('a');
